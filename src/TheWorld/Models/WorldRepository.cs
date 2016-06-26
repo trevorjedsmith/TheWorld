@@ -18,9 +18,9 @@ namespace TheWorld.Models
             _logger = logger;
         }
 
-        public void AddStop(string tripName,Stop stop)
+        public void AddStop(string tripName,Stop stop,string username)
         {
-            var theTrip = GetTripByName(tripName);
+            var theTrip = GetTripByName(tripName,username);
             stop.Order = theTrip.Stops.Max(s => s.Order) + 1;
             theTrip.Stops.Add(stop);
             _context.Stops.Add(stop);
@@ -60,11 +60,19 @@ namespace TheWorld.Models
             }
         }
 
-        public Trip GetTripByName(string tripName)
+        public Trip GetTripByName(string tripName, string username)
         {
             return _context.Trips.Include(t => t.Stops)
-                            .Where(w => w.Name == tripName)
+                            .Where(w => w.Name == tripName && w.UserName == username)
                             .FirstOrDefault();
+        }
+
+        public IEnumerable<Trip> GetUserTripsWithStops(string name)
+        {
+            
+              var trips =  _context.Trips.Include(t => t.Stops).
+                Where(w => w.UserName == name);
+            return trips;
         }
 
         public bool SaveAll()

@@ -14,6 +14,9 @@ using TheWorld.Models;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
 using TheWorld.ViewModels;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Net;
 
 namespace TheWorld
 {
@@ -35,6 +38,29 @@ namespace TheWorld
 
             services.AddEntityFrameworkSqlServer().AddDbContext<WorldContext>();
 
+            services.AddIdentity<WorldUser, IdentityRole>(config=> {
+                config.User.RequireUniqueEmail = true;
+                config.Password.RequiredLength = 6;
+                config.Cookies.ApplicationCookie.LoginPath = "/Auth/Login";
+                config.Cookies.ApplicationCookie.Events = new CookieAuthenticationEvents()
+                {
+                    OnRedirectToLogin = context =>
+                    {
+                        if(context.Request.Path.StartsWithSegments("/api") && 
+                        context.Response.StatusCode == (int)HttpStatusCode.OK)
+                        {
+                            context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+                        }
+                        else
+                        {
+                            context.Response.Redirect(context.RedirectUri);
+                        }
+
+                        return Task.FromResult(0);
+                    }
+                };
+            }).AddEntityFrameworkStores<WorldContext>();
+
             //change out with real mail service in production
             services.AddScoped<CoordService>();
             services.AddScoped<IMailService, DebugMailService>();
@@ -42,12 +68,14 @@ namespace TheWorld
             services.AddScoped<WorldContextSeedData>();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, WorldContextSeedData wcsd,ILoggerFactory loggerFactory)
+        public async void Configure(IApplicationBuilder app, WorldContextSeedData wcsd,ILoggerFactory loggerFactory)
         {
             //you could add provider to log to a db
             loggerFactory.AddDebug(LogLevel.Warning);
 
             app.UseStaticFiles();
+
+            app.UseIdentity();
 
             AutoMapper.Mapper.Initialize(config =>
             {
@@ -64,8 +92,8 @@ namespace TheWorld
                     defaults: new { controller = "App", action = "index" }
                     );
             });
-
-            wcsd.EnsureSeedData();
+            //used code first migrations
+            await wcsd.EnsureSeedData();
         }
     }
 }

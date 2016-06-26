@@ -4,32 +4,12 @@
 
 }
 
-<div class="row">
+<div class="row jumbotron">
 
-    <div class="col-md-6">
-        <h1>The World</h1>
-        <p>This will be a fun website soon!</p>
-
-        <form>
-            <div class="form-group">
-                <label>Date</label>
-                <input class="form-control" />
-            </div>
-            <div>
-                <label>Location</label>
-                <input class="form-control" />
-            </div>
-            <div><input class="btn btn-success btn-lg" type="submit" value="Add" /></div>
-        </form>
-    </div>
-    <div class="col-md-6">
-        <h2>The Map</h2>
-        <ul>
-            @foreach (var trip in Model)
-            {
-                <li>@trip.Name</li>
-            }
-        </ul>
-    </div>
+ <div class="col-md-12">
+     <h1>Welcome to The World</h1>
+     <p>This app will alow you to plan for World Trips</p>
+     @Html.ActionLink("View my trips", "Trips",new { },new {@class="btn btn-lg btn-success" })
+ </div>
 </div>
 

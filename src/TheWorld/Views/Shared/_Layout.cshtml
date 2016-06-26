@@ -14,12 +14,21 @@
 <body>
 
     <div id="sidebar">
-        <img src="~/img/user1.jpg" alt="headshot" class="headshot" />
-        <span id="username">Sam Hastings</span>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <img src="~/img/user1.jpg" alt="headshot" class="headshot" />
+            <span id="username">@User.Identity.Name</span>
+        }   
         <ul class="nav">
             <li>@Html.ActionLink("Home", "Index", "App")</li>
             <li>@Html.ActionLink("About", "About", "App")</li>
             <li>@Html.ActionLink("Contact", "Contact", "App")</li>
+            @if (User.Identity.IsAuthenticated)
+            {
+             <li>@Html.ActionLink("About", "About", "App")</li>
+             <li>@Html.ActionLink("Contact", "Contact", "App")</li>
+            }
+           
         </ul>
     </div>
 
@@ -33,7 +42,7 @@
                         </button>
                     </li>
                 </ul>
-                @Html.ActionLink("Home", "Index", "App",new { },new {@class="navbar-brand" })
+                @Html.ActionLink("Home", "Index", "App", new { }, new { @class = "navbar-brand" })
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="#" class="btn btn-sm btn-info"><i class="fa fa-save"></i>Save</a>
@@ -45,9 +54,9 @@
             </div>
         </nav>
         <div id="main" class="container-fluid">
-         <div>
-             @RenderBody()
-         </div>
+            <div>
+                @RenderBody()
+            </div>
 
         </div>
         <div id="footer" class="container-fluid">
@@ -57,7 +66,7 @@
     <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script type="text/javascript" src="~/js/site.js"> </script>
-    @RenderSection("Scripts",false)
+    @RenderSection("Scripts", false)
 </body>
 
 </html>

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,11 @@ namespace TheWorld.Controllers.web
         }
 
         public IActionResult Index()
+        {
+            return View();
+        }
+        [Authorize]
+        public IActionResult Trips()
         {
             var trips = _context.GetAllTrips();
             return View(trips);
