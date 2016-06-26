@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/lib/bootswatch/yeti/bootstrap.css"/>
+    <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="~/css/site.css" />
+
+</head>
+
+<body>
+
+    <div id="sidebar">
+        <img src="~/img/user1.jpg" alt="headshot" class="headshot" />
+        <span id="username">Sam Hastings</span>
+        <ul class="nav">
+            <li>@Html.ActionLink("Home", "Index", "App")</li>
+            <li>@Html.ActionLink("About", "About", "App")</li>
+            <li>@Html.ActionLink("Contact", "Contact", "App")</li>
+        </ul>
+    </div>
+
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <button class="btn btn-primary" id="sideBarToggle">
+                            <i class="fa fa-angle-left"></i>
+                        </button>
+                    </li>
+                </ul>
+                @Html.ActionLink("Home", "Index", "App",new { },new {@class="navbar-brand" })
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" class="btn btn-sm btn-info"><i class="fa fa-save"></i>Save</a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn btn-sm btn-info"><i class="fa fa-print"></i>Print</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="main" class="container-fluid">
+         <div>
+             @RenderBody()
+         </div>
+
+        </div>
+        <div id="footer" class="container-fluid">
+            <div class="navbar navbar-inverse navbar-fixed-bottom"><h4 class="text-info text-center">&copy; 2015 The World Ltd.</h4> </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="~/js/site.js"> </script>
+    @RenderSection("Scripts",false)
+</body>
+
+</html>
