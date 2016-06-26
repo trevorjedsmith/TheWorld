@@ -199,6 +199,7 @@
 --resource:"C:\Users\tsmith\documents\visual studio 2015\Projects\TheWorld\src\TheWorld\obj\Debug\netcoreapp1.0\TheWorlddotnet-compile.deps.json",TheWorld.deps.json
 C:\Users\tsmith\documents\visual studio 2015\Projects\TheWorld\src\TheWorld\Program.cs
 C:\Users\tsmith\documents\visual studio 2015\Projects\TheWorld\src\TheWorld\Startup.cs
+C:\Users\tsmith\documents\visual studio 2015\Projects\TheWorld\src\TheWorld\Controllers\api\SandBox.cs
 C:\Users\tsmith\documents\visual studio 2015\Projects\TheWorld\src\TheWorld\Controllers\api\Stop.cs
 C:\Users\tsmith\documents\visual studio 2015\Projects\TheWorld\src\TheWorld\Controllers\api\Trip.cs
 C:\Users\tsmith\documents\visual studio 2015\Projects\TheWorld\src\TheWorld\Controllers\web\AppController.cs
