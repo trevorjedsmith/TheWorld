@@ -38,6 +38,9 @@
           "lib/portable-windows8+net45+wp8/System.Interactive.Async.dll": {}
         }
       },
+      "jQuery/2.2.4": {
+        "type": "package"
+      },
       "Libuv/1.9.0-rc2-20901": {
         "type": "package",
         "runtimeTargets": {
@@ -3902,6 +3905,22 @@
         "lib/net45/System.Interactive.Async.dll",
         "lib/portable-windows8+net45+wp8/System.Interactive.Async.XML",
         "lib/portable-windows8+net45+wp8/System.Interactive.Async.dll"
+      ]
+    },
+    "jQuery/2.2.4": {
+      "sha512": "wIqsxUIDVz/hOAh760DqFdNJ1M4lqmRg6aZNk2Hd+3FRoTvwofpzk8Iqs9qxuMt98tNKMcyw8F1Eyvtyg0mr2g==",
+      "type": "package",
+      "files": [
+        "Content/Scripts/jquery-2.2.4-vsdoc.js",
+        "Content/Scripts/jquery-2.2.4.js",
+        "Content/Scripts/jquery-2.2.4.min.js",
+        "Content/Scripts/jquery-2.2.4.min.map",
+        "Tools/common.ps1",
+        "Tools/install.ps1",
+        "Tools/jquery-2.2.4.intellisense.js",
+        "Tools/uninstall.ps1",
+        "jQuery.2.2.4.nupkg.sha512",
+        "jQuery.nuspec"
       ]
     },
     "Libuv/1.9.0-rc2-20901": {
@@ -9969,7 +9988,8 @@
       "Microsoft.Extensions.Configuration.Json >= 1.0.0-rc2-final",
       "Microsoft.Extensions.Logging.Debug >= 1.0.0-rc2-final",
       "Microsoft.NETCore.App >= 1.0.0-rc2-3002702",
-      "System.Net.Http >= 4.0.1-rc2-24027"
+      "System.Net.Http >= 4.0.1-rc2-24027",
+      "jQuery >= 2.2.4"
     ],
     ".NETCoreApp,Version=v1.0": []
   },

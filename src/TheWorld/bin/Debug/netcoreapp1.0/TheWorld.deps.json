@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "753b83713203289b88f9bf80f4a321fd0e177a67"
+    "signature": "bd1776332854f73546a9140c52c60542cbffad78"
   },
   "compilationOptions": {
     "defines": [
@@ -17,6 +17,7 @@
       "TheWorld/1.0.0": {
         "dependencies": {
           "AutoMapper": "4.0.4",
+          "jQuery": "2.2.4",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.0.0-rc2-final",
           "Microsoft.AspNetCore.Mvc": "1.0.0-rc2-final",
           "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-rc2-final",
@@ -72,6 +73,7 @@
           "lib/portable-windows8+net45+wp8/System.Interactive.Async.dll": {}
         }
       },
+      "jQuery/2.2.4": {},
       "Libuv/1.9.0-rc2-20901": {
         "runtimeTargets": {
           "runtimes/debian-x64/native/libuv.so": {
@@ -3574,6 +3576,11 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-8EXO8q7cpDUH9G2q+UOPOO/6uZ9aN7mx/4xjFIfkp+qLWVJiYuglkRhjY8Ggs2CucXzHR8GHnovJKB5yQoYaJg=="
+    },
+    "jQuery/2.2.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wIqsxUIDVz/hOAh760DqFdNJ1M4lqmRg6aZNk2Hd+3FRoTvwofpzk8Iqs9qxuMt98tNKMcyw8F1Eyvtyg0mr2g=="
     },
     "Libuv/1.9.0-rc2-20901": {
       "type": "package",
